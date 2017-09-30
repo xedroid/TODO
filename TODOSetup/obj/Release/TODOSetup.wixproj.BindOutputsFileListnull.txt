@@ -1,0 +1,2 @@
+D:\Visual Studio Projects\TODOList\TODOSetup\bin\Release\TODOSetup.msi
+D:\Visual Studio Projects\TODOList\TODOSetup\bin\Release\TODOSetup.wixpdb

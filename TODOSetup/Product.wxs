@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"  xmlns:ui="http://schemas.microsoft.com/wix/UIExtension">
+	<Product Id="*" Name="TODOSetup" Language="1033" Version="1.0.0.0" Manufacturer="Arkadiusz Bednarowski" UpgradeCode="4a8330de-14e7-4bf8-95fe-5f714ec3adfb">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+		<UIRef Id="WixUI_InstallDir" />
+		<WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="TODOSetup" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="amd64Components" />
+			<ComponentGroupRef Id="MicrosoftVC90CRTComponents" />
+			<ComponentGroupRef Id="x86Components" />
+			<ComponentGroupRef Id="MicrosoftVC90CRTx86Components" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="TODOSetup" >
+					<Directory Id="XAMD64" Name="amd64">
+						<Directory Id="MicrosoftVC90CRT" Name="Microsoft.VC90.CRT"/>
+					</Directory>
+					<Directory Id="x86" Name="x86">
+						<Directory Id="MicrosoftVC90CRTx86" Name="Microsoft.VC90.CRT"/>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<Component Id="CMP_TODOSetup"  Guid="{6F44232F-1C0B-4278-AB2B-BFD34FAE863C}">
+				<File Id="FILE_TODOList.exe" Source="..\TODOList\bin\Release\TODOList.exe" />
+				<File Id="EntityFramework.dll" Source="..\TODOList\bin\Release\EntityFramework.dll" />
+				<File Id="EntityFramework.SqlServer.dll" Source="..\TODOList\bin\Release\EntityFramework.SqlServer.dll" />
+				<File Id="EntityFramework.SqlServerCompact.dll" Source="..\TODOList\bin\Release\EntityFramework.SqlServerCompact.dll" />
+				<File Id="EntityFramework.SqlServer.xml" Source="..\TODOList\bin\Release\EntityFramework.SqlServer.xml" />
+				<File Id="EntityFramework.SqlServerCompact.xml" Source="..\TODOList\bin\Release\EntityFramework.SqlServerCompact.xml" />
+				<File Id="EntityFramework.xml" Source="..\TODOList\bin\Release\EntityFramework.xml" />
+				<File Id="System.Data.SqlServerCe.dll" Source="..\TODOList\bin\Release\System.Data.SqlServerCe.dll" />
+				<File Id="TODOList.exe.config" Source="..\TODOList\bin\Release\TODOList.exe.config" />
+				<File Id="TODOList.pdb" Source="..\TODOList\bin\Release\TODOList.pdb" />
+				<File Id="TODOList.vshost.exe" Source="..\TODOList\bin\Release\TODOList.vshost.exe" />
+				<File Id="TODOList.vshost.exe.config" Source="..\TODOList\bin\Release\TODOList.vshost.exe.config" />
+				<!--<File Id="TODOList.vshost.exe.manifest" Source="..\TODOList\bin\Release\TODOList.vshost.exe.manifest" />-->
+			</Component>
+		</ComponentGroup>
+		<ComponentGroup Id="amd64Components" Directory="XAMD64">
+			<Component Id="amd64Component" Guid="{A41811D7-49DD-462B-98D2-56DF1202008E}">
+				<File Id="sqlcese40.dll" Source="..\TODOList\bin\Release\amd64\sqlcese40.dll" />
+				<File Id="sqlceqp40.dll" Source="..\TODOList\bin\Release\amd64\sqlceqp40.dll" />
+				<File Id="sqlceme40.dll" Source="..\TODOList\bin\Release\amd64\sqlceme40.dll" />
+				<File Id="sqlceer40EN.dll" Source="..\TODOList\bin\Release\amd64\sqlceer40EN.dll" />
+				<File Id="sqlcecompact40.dll" Source="..\TODOList\bin\Release\amd64\sqlcecompact40.dll" />
+				<File Id="sqlceca40.dll" Source="..\TODOList\bin\Release\amd64\sqlceca40.dll" />
+			</Component>
+		</ComponentGroup>
+		<ComponentGroup Id="MicrosoftVC90CRTComponents" Directory="MicrosoftVC90CRT">
+			<Component Id="MicrosoftVC90CRTComponent" Guid="{939df7b3-9e83-490e-9702-936d826374b6}">
+				<File Id="Microsoft.VC90.CRT.manifest" Source="..\TODOList\bin\Release\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+				<File Id="msvcr90.dll" Source="..\TODOList\bin\Release\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
+				<File Id="README_ENU.txt" Source="..\TODOList\bin\Release\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
+			</Component>
+		</ComponentGroup>
+		<ComponentGroup Id="x86Components" Directory="x86">
+			<Component Id="x86Component" Guid="{39cae732-db1b-449c-b3e7-e298357917a1}">
+				<File Id="x86sqlcese40.dll" Source="..\TODOList\bin\Release\x86\sqlcese40.dll" />
+				<File Id="x86sqlceqp40.dll" Source="..\TODOList\bin\Release\x86\sqlceqp40.dll" />
+				<File Id="x86sqlceme40.dll" Source="..\TODOList\bin\Release\x86\sqlceme40.dll" />
+				<File Id="x86sqlceer40EN.dll" Source="..\TODOList\bin\Release\x86\sqlceer40EN.dll" />
+				<File Id="x86sqlcecompact40.dll" Source="..\TODOList\bin\Release\x86\sqlcecompact40.dll" />
+				<File Id="x86sqlceca40.dll" Source="..\TODOList\bin\Release\x86\sqlceca40.dll" />
+			</Component>
+		</ComponentGroup>
+		<ComponentGroup Id="MicrosoftVC90CRTx86Components" Directory="MicrosoftVC90CRTx86">
+			<Component Id="MicrosoftVC90CRTx86Component" Guid="{32bbcb36-fcfd-461b-9e1c-bc5e492ba10e}">
+				<File Id="x86Microsoft.VC90.CRT.manifest" Source="..\TODOList\bin\Release\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
+				<File Id="x86msvcr90.dll" Source="..\TODOList\bin\Release\x86\Microsoft.VC90.CRT\msvcr90.dll" />
+				<File Id="x86README_ENU.txt" Source="..\TODOList\bin\Release\x86\Microsoft.VC90.CRT\README_ENU.txt" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

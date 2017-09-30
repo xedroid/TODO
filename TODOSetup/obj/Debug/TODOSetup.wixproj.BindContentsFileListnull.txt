@@ -1,0 +1,13 @@
+..\TODOList\bin\Release\EntityFramework.dll
+..\TODOList\bin\Release\EntityFramework.SqlServer.dll
+..\TODOList\bin\Release\EntityFramework.SqlServer.xml
+..\TODOList\bin\Release\EntityFramework.SqlServerCompact.dll
+..\TODOList\bin\Release\EntityFramework.SqlServerCompact.xml
+..\TODOList\bin\Release\EntityFramework.xml
+D:\Visual Studio Projects\TODOList\TODOList\bin\Debug\TODOList.exe
+..\TODOList\bin\Release\System.Data.SqlServerCe.dll
+..\TODOList\bin\Release\TODOList.exe.config
+..\TODOList\bin\Release\TODOList.pdb
+..\TODOList\bin\Release\TODOList.vshost.exe
+..\TODOList\bin\Release\TODOList.vshost.exe.config
+..\TODOList\bin\Release\TODOList.vshost.exe.manifest
